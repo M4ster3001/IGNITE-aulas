@@ -1,20 +1,16 @@
 import { Router } from "express";
 
-import { Category } from "../models/Category";
+import { createCategoryCTR } from "../modules/cars/useCases/createCategory";
+import { listCategoriesCTR } from "../modules/cars/useCases/listCategories";
 
 const categoriesRoutes = Router();
 
-const categories: Category[] = [];
-
 categoriesRoutes.post("/", (request, response) => {
-  const { name, description } = request.body;
+  return createCategoryCTR.handle(request, response);
+});
 
-  const category = new Category();
-  Object.assign(category, { name, description, created_at: new Date() });
-
-  categories.push(category);
-
-  return response.status(201).json({ category });
+categoriesRoutes.get("/", (request, response) => {
+  return listCategoriesCTR.handle(request, response);
 });
 
 export { categoriesRoutes };
