@@ -4,15 +4,23 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "start-server": "sudo docker-compose up --force-recreate",
     "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts",
     "lint:fix": "eslint --fix . --ext ts,tsx",
-    "test": "jest"
+    "test": "jest",
+    "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
+    "typeorm:run": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:run",
+    "typeorm:rvt": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:revert",
+    "typeorm:ct": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:create -n"
   },
   "dependencies": {
     "csv-parse": "^4.15.4",
     "express": "^4.17.1",
     "multer": "^1.4.2",
+    "pg": "^8.6.0",
+    "reflect-metadata": "^0.1.13",
     "swagger-ui-express": "^4.1.6",
+    "typeorm": "^0.2.32",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
