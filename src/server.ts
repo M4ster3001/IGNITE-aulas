@@ -1,4 +1,5 @@
 import express from "express";
+import "reflect-metadata";
 import swaggerUi from "swagger-ui-express";
 
 import { router } from "./routes";
@@ -6,9 +7,10 @@ import swaggerFile from "./swagger.json";
 
 import "./database";
 
+import "./shared/container";
+
 const PORT = 3333;
 
-console.clear();
 const app = express();
 
 app.use(express.json());
