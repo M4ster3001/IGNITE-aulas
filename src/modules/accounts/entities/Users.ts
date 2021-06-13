@@ -6,6 +6,7 @@ import {
   Timestamp,
   UpdateDateColumn,
 } from "typeorm";
+import { v4 as uuidV4 } from "uuid";
 
 @Entity("users")
 class User {
@@ -27,14 +28,20 @@ class User {
   @Column()
   driver_license: string;
 
-  @Column()
+  @Column({ name: "admin" })
   isAdmin: boolean;
 
   @CreateDateColumn()
   created_at: Date;
 
   @UpdateDateColumn()
-  updateAt: Timestamp;
+  updated_at: Timestamp;
+
+  constructor() {
+    if (!this.id) {
+      this.id = uuidV4();
+    }
+  }
 }
 
 export { User };
