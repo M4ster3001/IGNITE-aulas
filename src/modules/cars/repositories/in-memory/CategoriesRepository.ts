@@ -1,4 +1,5 @@
-import { Category } from "../../entities/Category";
+import { Category } from "@modules/cars/entities/Category";
+
 import {
   ICategoriesRepository,
   ICreateCategoryDTO,
@@ -9,8 +10,7 @@ class CategoriesRepository implements ICategoriesRepository {
 
   async findByName(name: string): Promise<Category> {
     const category = this.categories.find((category) => category.name === name);
-
-    return category;
+    return category as Category;
   }
 
   async list(): Promise<Category[]> {

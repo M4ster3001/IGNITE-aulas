@@ -1,11 +1,10 @@
+import uploadConfig from "@config/upload";
+import { ensureAuthenticated } from "@middlewares/ensureAuthenticated";
+import { CreateCategoryCTR } from "@modules/cars/useCases/createCategory/CreateCategoryCTR";
+import { ImportCategoryCTR } from "@modules/cars/useCases/importCategory/ImportCategoryCTR";
+import { ListCategoriesCTR } from "@modules/cars/useCases/listCategories/ListCategoriesCTR";
 import { Router } from "express";
 import multer from "multer";
-
-import uploadConfig from "../config/upload";
-import { ensureAuthenticated } from "../middlewares/ensureAuthenticated";
-import { CreateCategoryCTR } from "../modules/cars/useCases/createCategory/CreateCategoryCTR";
-import { ImportCategoryCTR } from "../modules/cars/useCases/importCategory/ImportCategoryCTR";
-import { ListCategoriesCTR } from "../modules/cars/useCases/listCategories/ListCategoriesCTR";
 
 const categoriesRoutes = Router();
 

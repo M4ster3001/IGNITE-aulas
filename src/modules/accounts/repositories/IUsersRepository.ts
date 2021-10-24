@@ -1,4 +1,4 @@
-import { User } from "modules/accounts/entities/Users";
+import { User } from "@modules/accounts/entities/Users";
 
 import { ICreateUserDTO } from "../dtos/ICreateUserDTO";
 

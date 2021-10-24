@@ -1,10 +1,9 @@
+import uploadConfig from "@config/upload";
+import { ensureAuthenticated } from "@middlewares/ensureAuthenticated";
+import { CreateUserCTR } from "@modules/accounts/useCases/createUser/CreateUserCTR";
+import { UpdateUserAvatarCTR } from "@modules/accounts/useCases/updateUserAvatar/UpdateUserAvatarCTR";
 import { Router } from "express";
 import multer from "multer";
-
-import uploadConfig from "../config/upload";
-import { ensureAuthenticated } from "../middlewares/ensureAuthenticated";
-import { CreateUserCTR } from "../modules/accounts/useCases/createUser/CreateUserCTR";
-import { UpdateUserAvatarCTR } from "../modules/accounts/useCases/updateUserAvatar/UpdateUserAvatarCTR";
 
 const usersRoutes = Router();
 

@@ -1,8 +1,7 @@
+import { ensureAuthenticated } from "@middlewares/ensureAuthenticated";
+import { CreateSpecificationCTR } from "@modules/cars/useCases/createSpecification/CreateSpecificationCTR";
+import { ListSpecificationsCTR } from "@modules/cars/useCases/listSpecifications/ListSpecificationsCTR";
 import { Router } from "express";
-
-import { ensureAuthenticated } from "../middlewares/ensureAuthenticated";
-import { CreateSpecificationCTR } from "../modules/cars/useCases/createSpecification/CreateSpecificationCTR";
-import { ListSpecificationsCTR } from "../modules/cars/useCases/listSpecifications/ListSpecificationsCTR";
 
 const specificationRoutes = Router();
 
