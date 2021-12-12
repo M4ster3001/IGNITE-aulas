@@ -1,5 +1,6 @@
-import { AppError } from "@errors/AppError";
 import fs from "fs";
+
+import { AppError } from "@shared/errors/AppError";
 
 export const deleteFile = async (filename: string) => {
   try {

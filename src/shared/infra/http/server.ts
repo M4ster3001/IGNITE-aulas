@@ -3,13 +3,12 @@ import "express-async-errors";
 import "reflect-metadata";
 import swaggerUi from "swagger-ui-express";
 
-import { AppError } from "./errors/AppError";
+import { AppError } from "@shared/errors/AppError";
+
+import "../typeorm";
+
+import "../../container";
 import { router } from "./routes";
-import swaggerFile from "./swagger.json";
-
-import "./database";
-
-import "./shared/container";
 
 const PORT = 3333;
 
@@ -17,7 +16,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerUi));
 
 app.use(router);
 
